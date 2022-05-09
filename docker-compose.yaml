@@ -1,0 +1,61 @@
+version: '3.9'
+
+services:
+    redis:
+        image: redis
+        ports:
+            - '6379:6379'
+
+    mlflow:
+        restart: always
+        build: ./mlflow
+        image: mlflow_server
+        container_name: mlflow_server
+        ports:
+          - 5030:5000
+        environment:
+            - BACKEND=sqlite:////mldb.db
+            - ARTIFACTS=/mlflow/artifacts
+        volumes:
+            - ./mlflow:/mlflow
+        command:
+            - sh
+            - -c
+            - mlflow server
+                --port ${MLFLOW_PORT}
+                --host 0.0.0.0
+                --backend-store-uri $${BACKEND}
+                --default-artifact-root $${ARTIFACTS}
+    celery:
+        build: ./celery
+        volumes:
+            - ./celery:/celery
+            - ./images:/images
+            - ./mlflow:/mlflow
+        depends_on:
+            - redis
+            - mlflow
+    app:
+        build: ./app
+        volumes:
+          - ./app:/app
+          - ./images:/images
+        ports:
+          - 8080:8000
+        depends_on:
+          - celery
+        expose:
+          - 8080
+    jupyter:
+        build: ./jupyter
+        volumes:
+          - ./mlflow:/mlflow
+        ports:
+          - 8060:8060
+        depends_on:
+          - mlflow
+        command: jupyter lab --ip 0.0.0.0 --port 8060 --no-browser --ServerApp.token='' --ServerApp.password='' --allow-root
+        
+volumes:
+    db_datapg:
+

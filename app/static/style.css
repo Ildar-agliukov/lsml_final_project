@@ -1,0 +1,100 @@
+body {
+    background-color: #fff;
+}
+
+.bg-image {
+    /* The image used */
+    background-image: url("background.jpg");
+  
+    /* Add the blur effect */
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+  
+    /* Full height */
+    height: 100%; 
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .bg-text {
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+    color: white;
+    font-weight: bold;
+    border: 3px solid #f1f1f1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 80%;
+    padding: 20px;
+    text-align: center;
+  }
+
+.no-display {
+    display: none;
+}
+
+.center {
+    margin: auto;
+    padding: 10px 50px;
+    text-align: center;
+    font-size: 18px;
+    max-width: 450px;
+}
+
+.title {
+    font-size: 42px;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    color: #ffffff;
+}
+
+.content {
+    margin-top: 4em;
+}
+
+.analyze {
+    margin-top: 4em;
+}
+
+.upload-label {
+    padding: 10px;
+    font-size: 18px;
+}
+
+.result-label {
+    margin-top: 0.5em;
+    padding: 10px;
+    font-size: 20px;
+    color: #000000;
+    text-shadow: -1px 0 #FFD700, 0 1px #FFD700, 1px 0 #FFD700, 0 -1px #FFD700;
+}
+
+button.choose-file-button {
+    width: 200px;
+    height: 40px;
+    border-radius: 2px;
+    background-color: #FFD700;
+    border: solid 1px #000000;
+    font-size: 13px;
+    color: #000000;
+}
+
+button.analyze-button {
+    width: 200px;
+    height: 40px;
+    border: solid 1px #000000;
+    border-radius: 2px;
+    background-color: #FFD700;
+    font-size: 13px;
+    color: #000000;
+}
+
+button:focus {
+    outline: 0;
+}
