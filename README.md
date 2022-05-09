@@ -15,8 +15,8 @@ Javascript waiting True ready status and parse new image from backend response
 Reproduce instruction: to train you can simply run jupyter notebook where model will loged by MLFLOW   
 
 
-The main project idia to copy some style to image. 
-The project was ispired by that paper: https://arxiv.org/pdf/1703.06953.pdf.  
+The main project idea is a trying to copy some style of picture to image. 
+The project was inspired by that paper: https://arxiv.org/pdf/1703.06953.pdf.  
 Loss is summ of style network loss and content network losses.  
 Content network loss content_weight * MSE between customized Vgg  features outputs original image and style image.  
 Style loss is sum of style_weights * MSE betweeb gramm matrix output.  
@@ -38,11 +38,11 @@ For me it seems like mlflow project
 
 ### 4. Docker part 
 We have docker compose for full architecture
-1) backend
+1) Backend
 2) Celery
 3) Redis
-4) jupyterlab
-6) mlflow with Database
+4) Jupyterlab
+6) Mlflow with Database
 
 
 ### Installing:
