@@ -14,7 +14,7 @@ services:
         ports:
           - 5030:5000
         environment:
-            - BACKEND=sqlite:////mldb.db
+            - BACKEND=sqlite:////./mlflow/mldb.db
             - ARTIFACTS=/mlflow/artifacts
         volumes:
             - ./mlflow:/mlflow
